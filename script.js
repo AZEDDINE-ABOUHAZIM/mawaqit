@@ -18,7 +18,7 @@ function(error) {
     }
 );
 */
-
+window.onload = function(){
 navigator.geolocation.getCurrentPosition(
   function(position) {
     const latitude = position.coords.latitude;
@@ -29,7 +29,7 @@ navigator.geolocation.getCurrentPosition(
     alert("Erreur : " + error.message);
   }
 );
-
+};
 function updatePrayerTimes(lat, lon) {
       const date = new Date();
       const timestamp = Math.floor(date.getTime() / 1000);
