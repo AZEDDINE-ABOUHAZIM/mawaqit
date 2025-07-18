@@ -1,14 +1,14 @@
 navigator.geolocation.getCurrentPosition(success, error);
 
 function success(position) {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
       //getCityName(lat, lon);
-	alert(lat, lon);
+	alert(latitude, longitude);
     }
 
     function error() {
-      alert(lat, lon);
+      alert(latitude, longitude);
     }
 
 function getCityName(lat, lon) {
