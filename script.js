@@ -15,7 +15,7 @@ function getCityName(lat, lon) {
     .then(response => response.json())
     .then(data => {
       updatePrayerTimes(lat, lon);
-	    alert(features[0]);
+	    alert(data);
     })
     .catch(err => {
       updatePrayerTimes(lat, lon);
