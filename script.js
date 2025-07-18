@@ -1,4 +1,5 @@
-/*navigator.geolocation.getCurrentPosition(
+window.onload = function() {
+navigator.geolocation.getCurrentPosition(
 
 function(position) {
       const latitude = position.coords.latitude;
@@ -16,18 +17,6 @@ function(position) {
 function(error) {
       alert(latitude, longitude);
     }
-);
-*/
-window.onload = function(){
-navigator.geolocation.getCurrentPosition(
-  function(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    alert("Latitude : " + latitude + "\nLongitude : " + longitude);
-  },
-  function(error) {
-    alert("Erreur : " + error.message);
-  }
 );
 };
 function updatePrayerTimes(lat, lon) {
