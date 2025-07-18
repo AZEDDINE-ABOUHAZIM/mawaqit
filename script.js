@@ -1,15 +1,15 @@
-navigator.geolocation.getCurrentPosition(success, error);
+navigator.geolocation.getCurrentPosition(
 
-function success(position) {
+function(position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
       getCityName(latitude, longitude);
     }
 
-    function error() {
+    function(error) {
       alert(latitude, longitude);
     }
-
+);
 function getCityName(lat, lon) {
 	alert(lat);
   fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}`)
