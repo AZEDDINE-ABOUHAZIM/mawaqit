@@ -3,24 +3,20 @@ navigator.geolocation.getCurrentPosition(
 function(position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      getCityName(latitude, longitude);
-    },
-function(error) {
-      alert(latitude, longitude);
-    }
-);
-function getCityName(lat, lon) {
-	alert(lat);
-  fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}`)
+	fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${longitude}&lat=${latitude}`)
     .then(response => response.json())
     .then(data => {
-	    //alert(data.features[0].properties.city);
+	    alert(data.features[0].properties.city);
       updatePrayerTimes(lat, lon);
     })
     .catch(err => {
       updatePrayerTimes(lat, lon);
     });
-}
+    },
+function(error) {
+      alert(latitude, longitude);
+    }
+);
 
 function updatePrayerTimes(lat, lon) {
       const date = new Date();
