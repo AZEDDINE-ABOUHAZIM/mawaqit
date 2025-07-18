@@ -7,7 +7,7 @@ function success(position) {
     }
 
     function error() {
-      getCityName("33.60538100", "-7.63194900");
+      getCityName("33.58831", "-7.61138");
     }
 
 function getCityName(lat, lon) {
@@ -15,7 +15,7 @@ function getCityName(lat, lon) {
     .then(response => response.json())
     .then(data => {
       updatePrayerTimes(lat, lon);
-	    alert(data);
+	    alert(data.features[0]);
     })
     .catch(err => {
       updatePrayerTimes(lat, lon);
