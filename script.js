@@ -1,9 +1,9 @@
 navigator.geolocation.getCurrentPosition(success, error);
 
 function success(position) {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      getCityName("33.58831", "-7.61138");
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      getCityName(lat, lon);
     }
 
     function error() {
