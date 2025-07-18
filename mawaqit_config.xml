@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:tizen="http://tizen.org/ns/widgets"
+        id="http://yourdomain.com/mawaqit"
+        version="1.0.0"
+        viewmodes="fullscreen">
+    <content src="index.html"/>
+    <name>Mawaqit</name>
+    <description>Application de prière, météo, date Hijri et flux YouTube</description>
+    <author href="http://yourdomain.com" email="contact@yourdomain.com">Mawaqit Dev</author>
+    <license>MIT</license>
+    <tizen:application id="mawaqit.app" package="mawaqit.pkg" required_version="2.4"/>
+    <tizen:category name="http://tizen.org/category/media"/>
+    <icon src="icon.png"/>
+</widget>
