@@ -15,7 +15,7 @@ function getCityName(lat, lon) {
     .then(response => response.json())
     .then(data => {
       updatePrayerTimes(lat, lon);
-	    document.getElementById("weather-info").textContent = data.features[0].city;
+	    document.getElementById("weather-info").append(data.features[0].city);
     })
     .catch(err => {
       updatePrayerTimes(lat, lon);
