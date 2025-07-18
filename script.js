@@ -7,7 +7,7 @@ function success(position) {
     }
 
     function error() {
-      getCityName("33.58831", "-7.61138");
+      alert(lat, lon);
     }
 
 function getCityName(lat, lon) {
