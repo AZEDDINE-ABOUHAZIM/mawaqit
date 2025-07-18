@@ -1,7 +1,7 @@
 window.onload = function() {
 navigator.geolocation.getCurrentPosition(
 
-function(position) {
+position =>{
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 	fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${longitude}&lat=${latitude}`)
@@ -14,7 +14,7 @@ function(position) {
       updatePrayerTimes(latitude, longitude);
     });
     },
-function(error) {
+error => {
       alert(latitude, longitude);
     }
 );
