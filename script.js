@@ -4,6 +4,7 @@ function success(position) {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
       getCityName(lat, lon);
+	alert(lat, lon);
     }
 
     function error() {
