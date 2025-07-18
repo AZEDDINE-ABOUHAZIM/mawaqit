@@ -3,7 +3,7 @@ navigator.geolocation.getCurrentPosition(success, error);
 function success(position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      getCityName(latitude, longitude);
+      getCityName("33.58831", "-7.61138");
     }
 
     function error() {
@@ -14,8 +14,8 @@ function getCityName(lat, lon) {
   fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}`)
     .then(response => response.json())
     .then(data => {
-      updatePrayerTimes(lat, lon);
 	    alert(data.features[0].properties.city);
+      updatePrayerTimes(lat, lon);
     })
     .catch(err => {
       updatePrayerTimes(lat, lon);
