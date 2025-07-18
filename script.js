@@ -7,10 +7,10 @@ function(position) {
     .then(response => response.json())
     .then(data => {
 	    alert(data.features[0].properties.city);
-      updatePrayerTimes(lat, lon);
+      updatePrayerTimes(latitude, longitude);
     })
     .catch(err => {
-      updatePrayerTimes(lat, lon);
+      updatePrayerTimes(latitude, longitude);
     });
     },
 function(error) {
