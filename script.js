@@ -3,7 +3,7 @@ navigator.geolocation.getCurrentPosition(success, error);
 function success(position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      getCityName("33.60538100", "-7.63194900");
+      getCityName(latitude, longitude);
     }
 
     function error() {
