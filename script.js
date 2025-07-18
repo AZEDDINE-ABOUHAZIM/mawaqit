@@ -16,7 +16,7 @@ function getCityName(lat, lon) {
   fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}`)
     .then(response => response.json())
     .then(data => {
-	    alert(data.features[0].properties.city);
+	    //alert(data.features[0].properties.city);
       updatePrayerTimes(lat, lon);
     })
     .catch(err => {
