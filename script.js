@@ -8,7 +8,8 @@ position =>{
 	fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${longitude}&lat=${latitude}`)
     .then(response => response.json())
     .then(data => {
-	    alert(data.features[0]?.properties?.city)
+	    const city = data.features[0]?.properties?.city || "Ville non trouvée";
+	    alert(city);
       updatePrayerTimes(latitude, longitude);
     })
     .catch(err => {
