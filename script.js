@@ -1,14 +1,15 @@
 window.onload = function() {
 navigator.geolocation.getCurrentPosition(
-
+      
 position =>{
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-	fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${longitude}&lat=${latitude}`)
+const latitude = position.coords.latitude;
+const longitude = position.coords.longitude;
+	
+fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${longitude}&lat=${latitude}`)
     .then(response => response.json())
     .then(data => {
 	    const city = data.features[0]?.properties?.city || "Ville non trouvée";
-	    alert("https://api-adresse.data.gouv.fr/reverse/?lon=" + longitude + "&lat=" + latitude);
+	    alert(city);
       updatePrayerTimes(latitude, longitude);
     })
     .catch(err => {
@@ -16,10 +17,11 @@ position =>{
     });
     },
 error => {
-      alert(latitude, longitude);
+      alert(error.message);
     }
 );
 };
+
 function updatePrayerTimes(lat, lon) {
       const date = new Date();
       const timestamp = Math.floor(date.getTime() / 1000);
