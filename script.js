@@ -13,8 +13,8 @@ position =>{
 	const ville = data.address.city || "Ville inconnue";
         const pays = data.address.country || "Pays inconnu";
 	
-        alert(`📍  ${rue}, ${quartier}, ${ville} \n🌍 Pays : ${pays}`);
-	document.getElementById("local-info").textContent += `\n📍  ${rue}, ${quartier}, ${ville} \n🌍 Pays : ${pays}`;
+        //alert(`📍  ${rue}, ${quartier}, ${ville} \n🌍 Pays : ${pays}`);
+	document.getElementById("local-info").textContent = `\n📍  ${rue}, ${quartier}, ${ville} \n🌍 Pays : ${pays}`;
 	updatePrayerTimes(lat, lon);
       })
     .catch(err => {
