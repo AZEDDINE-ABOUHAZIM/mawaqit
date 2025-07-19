@@ -8,13 +8,13 @@ position =>{
     fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`)
       .then(response => response.json())
       .then(data => {
-        const rue = address.road || "Rue inconnue";
-	const quartier = address.suburb || address.neighbourhood || "Quartier inconnu";
+        const rue = data.address.road || "Rue inconnue";
+	const quartier = data.address.suburb || data.address.neighbourhood || "Quartier inconnu";
 	const ville = data.address.city || "Ville inconnue";
         const pays = data.address.country || "Pays inconnu";
-	const local = `📍  ${rue}, ${ville}, ${quartier} \n🌍 Pays : ${pays}`;
+	
         alert(`📍  ${rue}, ${ville}, ${quartier} \n🌍 Pays : ${pays}`);
-	document.getElementById("weather-info").append(local);
+	
 	updatePrayerTimes(lat, lon);
       })
     .catch(err => {
