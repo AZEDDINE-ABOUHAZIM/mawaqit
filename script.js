@@ -14,7 +14,7 @@ position =>{
         const pays = data.address.country || "Pays inconnu";
 	
         alert(`📍  ${rue}, ${quartier}, ${ville} \n🌍 Pays : ${pays}`);
-	
+	document.getElementById("weather-info").textContent += `\n📍  ${rue}, ${quartier}, ${ville} \n🌍 Pays : ${pays}`;
 	updatePrayerTimes(lat, lon);
       })
     .catch(err => {
