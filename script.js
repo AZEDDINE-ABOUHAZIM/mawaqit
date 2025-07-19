@@ -10,7 +10,8 @@ position =>{
       .then(data => {
         const ville = data.address.city || "Ville inconnue";
         const pays = data.address.country || "Pays inconnu";
-        alert(`📍 Ville : ${ville}\n🌍 Pays : ${pays}`);
+	const quartier = data.address.village || "Quartier inconnu";
+        alert(`📍 Quartier : ${quartier}, Ville : ${ville}\n🌍 Pays : ${pays}`);
 	updatePrayerTimes(lat, lon);
       })
     .catch(err => {
