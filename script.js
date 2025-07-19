@@ -2,18 +2,19 @@ window.onload = function() {
 navigator.geolocation.getCurrentPosition(
       
 position =>{
-const latitude = position.coords.latitude;
-const longitude = position.coords.longitude;
-	
-fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${longitude}&lat=${latitude}`)
-    .then(response => response.json())
-    .then(data => {
-	    const city = data.features[0]?.properties?.city || "Ville non trouvée";
-	    alert(city);
-      updatePrayerTimes(latitude, longitude);
-    })
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+
+    fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}`)
+      .then(response => response.json())
+      .then(data => {
+        const ville = data.features[0]?.properties?.city || "Ville inconnue";
+        const pays = data.features[0]?.properties?.context?.split(", ").pop() || "Pays inconnu";
+        alert(`📍 Ville : ${ville}\n🌍 Pays : ${pays}`);
+	updatePrayerTimes(lat, lon);
+      })
     .catch(err => {
-      updatePrayerTimes(latitude, longitude);
+      updatePrayerTimes(lat, lon);
     });
     },
 error => {
