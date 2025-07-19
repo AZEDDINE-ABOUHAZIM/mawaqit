@@ -2,15 +2,8 @@ window.onload = function() {
 navigator.geolocation.getCurrentPosition(
 
 position =>{
-      const arrondirCoord = (coord, niveau) => {
-      const precision = { pays: 0, region: 1, ville: 2 };
-      const decimales = precision[niveau] ?? 2;
-      return Number(coord).toFixed(decimales);
-    };
-	const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-      const latitude = arrondirCoord(lat, "ville");
-      const longitude = arrondirCoord(lon, "ville");
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
 	fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${longitude}&lat=${latitude}`)
     .then(response => response.json())
     .then(data => {
