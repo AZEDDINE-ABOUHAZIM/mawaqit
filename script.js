@@ -4,7 +4,7 @@ navigator.geolocation.getCurrentPosition(
 position =>{
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-
+alert(longitude + " - " + latitude);
 	fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${longitude}&lat=${latitude}`)
     .then(response => response.json())
     .then(data => {
