@@ -7,10 +7,11 @@ position =>{
       const decimales = precision[niveau] ?? 2;
       return Number(coord).toFixed(decimales);
     };
-	
-      const latitude = arrondirCoord(position.coords.latitude, "ville");
-      const longitude = arrondirCoord(position.coords.longitude, "ville");
-
+	const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+      const latitude = arrondirCoord(lat, "ville");
+      const longitude = arrondirCoord(lon, "ville");
+alert(`Coordonnées (ville) : Latitude ${latVille}, Longitude ${lonVille}`);
 	fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${longitude}&lat=${latitude}`)
     .then(response => response.json())
     .then(data => {
