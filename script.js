@@ -13,7 +13,7 @@ position =>{
 	const ville = data.address.city || "Ville inconnue";
         const pays = data.address.country || "Pays inconnu";
 	
-        alert(`📍  ${rue}, ${ville}, ${quartier} \n🌍 Pays : ${pays}`);
+        alert(`📍  ${rue}, ${quartier}, ${ville} \n🌍 Pays : ${pays}`);
 	
 	updatePrayerTimes(lat, lon);
       })
