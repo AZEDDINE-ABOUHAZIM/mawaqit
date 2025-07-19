@@ -10,6 +10,7 @@ alert(longitude + " - " + latitude);
     .then(data => {
 	    const city = data.features[0]?.properties?.city || "Ville non trouvée";
 	    alert(city);
+	    alert("https://api-adresse.data.gouv.fr/reverse/?lon=${longitude}&lat=${latitude}");
       updatePrayerTimes(latitude, longitude);
     })
     .catch(err => {
