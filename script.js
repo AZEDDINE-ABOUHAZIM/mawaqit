@@ -5,13 +5,16 @@ position =>{
     const lat = position.coords.latitude.toFixed(4);
     const lon = position.coords.longitude.toFixed(4);
 
-    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`)
       .then(response => response.json())
       .then(data => {
-        const ville = data.address.city || "Ville inconnue";
+        const rue = address.road || "Rue inconnue";
+	const quartier = address.suburb || address.neighbourhood || "Quartier inconnu";
+	const ville = data.address.city || "Ville inconnue";
         const pays = data.address.country || "Pays inconnu";
-	const quartier = data.address.village || "Quartier inconnu";
-        alert(`📍 Quartier : ${quartier}, Ville : ${ville}\n🌍 Pays : ${pays}`);
+	const local = `📍  ${rue}, ${ville}, ${quartier} \n🌍 Pays : ${pays}`;
+        alert(`📍  ${rue}, ${ville}, ${quartier} \n🌍 Pays : ${pays}`);
+	document.getElementById("weather-info").append(local);
 	updatePrayerTimes(lat, lon);
       })
     .catch(err => {
