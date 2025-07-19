@@ -5,11 +5,11 @@ position =>{
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
 
-    fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}`)
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
       .then(response => response.json())
       .then(data => {
-        const ville = data.features[0]?.properties?.city || "Ville inconnue";
-        const pays = data.features[0]?.properties?.context?.split(", ").pop() || "Pays inconnu";
+        const ville = data.address.city || "Ville inconnue";
+        const pays = data.address.country || "Pays inconnu";
         alert(`📍 Ville : ${ville}\n🌍 Pays : ${pays}`);
 	updatePrayerTimes(lat, lon);
       })
