@@ -2,8 +2,8 @@ window.onload = function() {
 navigator.geolocation.getCurrentPosition(
       
 position =>{
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
+    const lat = position.coords.latitude.toFixed(4);
+    const lon = position.coords.longitude.toFixed(4);
 
     fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
       .then(response => response.json())
