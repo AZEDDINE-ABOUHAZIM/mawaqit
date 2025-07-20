@@ -15,7 +15,7 @@ position =>{
 	
         //alert(`📍  ${rue}, ${quartier}, ${ville} \n🌍 Pays : ${pays}`);
 	document.getElementById("local-info").textContent = `\n📍  ${rue} ${quartier}${ville} ${pays}`;
-	updatePrayerTimes(lat, lon);
+	updatePrayerTimes(lat, lon, ville);
       })
     .catch(err => {
       updatePrayerTimes(lat, lon, ville);
