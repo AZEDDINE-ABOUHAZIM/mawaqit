@@ -8,10 +8,10 @@ position =>{
     fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`)
       .then(response => response.json())
       .then(data => {
-        const rue = data.address.road + ", " || "";
-	const quartier = data.address.suburb + ", " || data.address.neighbourhood + ", " || "";
-	const ville = data.address.city + ", "|| "";
-        const pays = data.address.country || "";
+        const rue = data.address.road + ", " || " ";
+	const quartier = data.address.suburb + ", " || data.address.neighbourhood + ", " || " ";
+	const ville = data.address.city + ", " || " ";
+        const pays = data.address.country || " ";
 	
         //alert(`📍  ${rue}, ${quartier}, ${ville} \n🌍 Pays : ${pays}`);
 	document.getElementById("local-info").textContent = `\n📍  ${rue} ${quartier}${ville} ${pays}`;
