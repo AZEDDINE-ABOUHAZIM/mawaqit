@@ -15,10 +15,10 @@ position =>{
 	
         //alert(`📍  ${rue}, ${quartier}, ${ville} \n🌍 Pays : ${pays}`);
 	document.getElementById("local-info").textContent = `\n📍  ${rue} ${quartier}${ville} ${pays}`;
-	updatePrayerTimes(lat, lon, ville);
+	updatePrayerTimes(lat, lon);
       })
     .catch(err => {
-      updatePrayerTimes(lat, lon, ville);
+      updatePrayerTimes(lat, lon);
     });
     },
 error => {
@@ -27,11 +27,11 @@ error => {
 );
 };
 
-function updatePrayerTimes(lat, lon, ville) {
+function updatePrayerTimes(lat, lon) {
       const date = new Date();
       const timestamp = Math.floor(date.getTime() / 1000);
 	
-      fetch(`https://api.aladhan.com/v1/timings/${timestamp}?latitude=${lat}&longitude=${lon}&method=11&school=0&timezonestring=Africa/${ville}&tune=0,0,0,0,0,0,0`)
+      fetch(`https://api.aladhan.com/v1/timings/${timestamp}?latitude=${lat}&longitude=${lon}&method=11&school=0&timezonestring=Africa/Casablanca&tune=0,0,0,0,0,0,0`)
     .then(response => response.json())
     .then(data => {
       const timings = data.data.timings;
