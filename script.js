@@ -18,7 +18,7 @@ position =>{
 	updatePrayerTimes(lat, lon);
       })
     .catch(err => {
-      updatePrayerTimes(lat, lon);
+      updatePrayerTimes(lat, lon, ville);
     });
     },
 error => {
@@ -27,11 +27,11 @@ error => {
 );
 };
 
-function updatePrayerTimes(lat, lon) {
+function updatePrayerTimes(lat, lon, ville) {
       const date = new Date();
       const timestamp = Math.floor(date.getTime() / 1000);
-
-      fetch(`https://api.aladhan.com/v1/timings/${timestamp}?latitude=${lat}&longitude=${lon}&method=2`)
+	
+      fetch(`https://api.aladhan.com/v1/timings/${timestamp}?latitude=${lat}&longitude=${lon}&method=11&school=0&timezonestring=Africa/${ville}&tune=0,0,0,0,0,0,0`)
     .then(response => response.json())
     .then(data => {
       const timings = data.data.timings;
